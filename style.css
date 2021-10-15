@@ -37,6 +37,7 @@ h1:before{
   color: #E1180A;
   top: -5rem;
   right: 100px;
+  margin-bottom: .5rem;
 }
 
 h3{
@@ -44,6 +45,7 @@ h3{
   color: #fff;
   /*color: #F3D600;*/
   padding: 1rem;
+  margin: auto .5rem;
 }
 
 .grid {
