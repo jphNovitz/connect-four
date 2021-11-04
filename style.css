@@ -1,6 +1,16 @@
 /*body, #winner {*/
 /*    background: radial-gradient(#fff, #0048AE);*/
 /*}*/
+
+:root {
+    --gap: 6px;
+    --coin: 3.5rem;
+    --grid-mobile: calc(90vw - var(--coin) * 2);
+    --grid-wide: calc(90vh - var(--coin) * 2);
+    --div-wide: calc((var(--grid-wide) - 8 * var(--gap)) / 8);
+    --div-mobile: calc((var(--grid-mobile) - (var(--gap ) * 7)) / 8)
+}
+
 body {
     background: radial-gradient(#fff, #0048AE);
     min-height: 100vh;
@@ -28,13 +38,14 @@ body {
     text-align: center;
 }
 
-#winner.visible{
+#winner.visible {
     width: 100vw;
     height: 100%;
     min-height: 100%;
     opacity: 1;
     z-index: 10;
 }
+
 #winner, h1 {
     color: white;
     background-color: black;
@@ -49,7 +60,7 @@ h1 {
     font-size: 2rem;
 }
 
-h1:before{
+h1:before {
     content: '';
     position: absolute;
     border: solid 7px white;
@@ -66,7 +77,7 @@ h1:before{
     position: absolute;
     color: #E1180A;
     top: -3rem;
-    right: 2.5rem;
+    left: 10rem;
     margin-bottom: .5rem;
 }
 
@@ -79,8 +90,8 @@ h3#current {
     font-weight: bolder;
     padding: 1rem;
     display: flex;
-    height: 4rem;
-    width: 4rem;
+    height: var(--coin);
+    width: var(--coin);
     outline: solid 2px white;
     flex-wrap: wrap;
     flex-direction: column;
@@ -103,32 +114,46 @@ h3#current.p2 {
     background-color: #F3D600;
     color: #E1180A;
 }
+
 h3#current > span {
     text-align: center;
 }
 
 .grid {
     border: 1px solid;
-    height: 340px;
-    width: 340px;
+    width: var(--grid-mobile);
+    height: var(--grid-mobile);
+    /*height: 340px;*/
+    /*width: 340px;*/
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    align-self: center;
     justify-content: space-around;
     align-content: space-between;
-    margin: auto;
     background-color: #0048AE;
     -webkit-box-shadow: 5px 5px 15px 5px rgba(206, 206, 206, 0.87);
     box-shadow: 5px 5px 15px 5px rgba(206, 206, 206, 0.87);
 }
 
 
+.grid div:first-child {
+    margin-left: calc(var(--gap) / 2);
+}
+
+.grid div:last-child {
+    margin-right: calc(var(--gap) / 2);
+}
+
 .grid div {
-    height: 41px;
-    width: 41px;
+    /*height: 41px;*/
+    width: var(--div-mobile);
+    height: var(--div-mobile);
+    /*width: 41px;*/
     border: solid .5px #cecece;
     border-radius: 50%;
     background-color: #fff;
+    margin: calc(var(--gap) / 2);
 }
 
 
@@ -146,60 +171,28 @@ h3#current > span {
     display: none;
 }
 
-@media  screen and (min-width: 600px) {
-
-    h1 {
-        padding: 2rem 5rem;
-        font-size: 3rem;
-    }
-
-    .h1 {
-        font-size: 15rem;
-        top: -5rem;
-        right: 100px;
-    }
-
-    .grid {
-        height: 400px;
-        width: 400px;
-    }
-
-
-    .grid div {
-        height: 50px;
-        width: 50px;
-    }
-
-}
-
-@media  screen and (min-width: 960px) {
+@media screen and (min-width: 600px) {
 
     #playground {
         flex-direction: row;
+        justify-content: center;
     }
 
     .grid {
-        height: 500px;
-        width: 500px;
+        height: var(--grid-wide);
+        width: var(--grid-wide);
+        margin-left: var(--coin);
+        /*  height: 500px;
+          width: 500px;*/
     }
 
 
     .grid div {
-        height: 63px;
-        width: 63px;
-    }
-}
-
-@media  screen and (min-width: 1200px) {
-
-    .grid {
-        height: 680px;
-        width: 680px;
-    }
-
-
-    .grid div {
-        height: 85px;
-        width: 85px;
+        height: var(--div-wide);
+        width: var(--div-wide);
+        margin-top: calc(var(--gap) / 2);
+        margin-bottom: calc(var(--gap) / 2);
+        /*height: 63px;*/
+        /*width: 63px;*/
     }
 }
