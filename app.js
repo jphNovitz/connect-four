@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function theWinnerIs(player) {
             play = 0
-            if (player === 'player-1') result.innerHTML = 'Player One Wins!'
+            if (player === 'player-one') result.innerHTML = 'Player One Wins!'
             else result.innerHTML = 'Player Two Wins!'
             winner.getAttribute('class')
             winner.classList.add('visible')
